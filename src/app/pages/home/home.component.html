@@ -1,0 +1,17 @@
+<app-banner [src]="'assets/imagens/banner-homepage.png'" [alt]="'Banner da Aplicação Jornada'"></app-banner>
+<app-container class="homepage">
+  <h2>Promoções</h2>
+  <app-form-busca></app-form-busca>
+  <div class="card-wrapper">
+    <app-card-busca *ngFor="let item of promocoes" [promocao]="item"></app-card-busca>
+  </div>
+  <h2>Depoimentos</h2>
+  <div class="card-wrapper" *ngIf="depoimentos.length > 0; else semDepoimentos">
+    <app-card-depoimento *ngFor="let item of depoimentos" [depoimento]="item" ></app-card-depoimento>
+  </div>
+  <ng-template #semDepoimentos>
+    Nenhum depoimento registrado.
+  </ng-template>
+</app-container>
+<app-banner [src]="'assets/imagens/banner-homepage-rodape.png'" [alt]="'Banner Rodapé'"></app-banner>
+

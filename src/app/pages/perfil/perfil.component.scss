@@ -1,0 +1,4 @@
+// adicionando estilo na classe do componente filho
+:host ::ng-deep .perfil-button {
+  width: 100%;
+}
