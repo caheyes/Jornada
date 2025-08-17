@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DepoimentoService } from 'src/app/core/services/depoimento.service';
 import { PromocaoService } from 'src/app/core/services/promocao.service';
 import { Depoimento, Promocao } from 'src/app/core/types/type';
@@ -14,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   constructor (
     private servicePromocao: PromocaoService,
-    private serviceDepoimento: DepoimentoService
+    private serviceDepoimento: DepoimentoService,
+    private router: Router
   ) {
 
   }
@@ -37,5 +39,9 @@ export class HomeComponent implements OnInit {
     .subscribe(res => {
       this.depoimentos = res;
     })
+  };
+
+  navegarParaBusca(ev: any) {
+    this.router.navigate(['busca']);
   }
 }
